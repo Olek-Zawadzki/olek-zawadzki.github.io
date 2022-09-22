@@ -36,8 +36,17 @@
         <section></section>
       </div>
       <script>
-        const wash = document.querySelector('select')
-        const clean = document.querySelectorAll()
+        let Cena = 0;
+        submit.addEventListener("click",function(){
+          cena = parseInt(document.getElementById("mycie").value);
+          if(document.getElementById("odkurzanie").checked){
+            cena += parseInt(odkurzanie.value);
+          }
+          if(document.getElementById("").checked){
+            cena += parseInt(.value);
+          }
+          wynik.innerHTML = cena;
+        })
       </script>
 </body>
 </html>
