@@ -36,16 +36,23 @@
         <section></section>
       </div>
       <script>
-        let Cena = 0;
-        submit.addEventListener("click",function(){
-          cena = parseInt(document.getElementById("mycie").value);
-          if(document.getElementById("odkurzanie").checked){
-            cena += parseInt(odkurzanie.value);
+        const wash = document.querySelector('select')
+        const clean = document.querySelectorAll('[type="checkbox"]')
+        const btn = document.querySelector('[type="submit"]')
+        const price = document.querySelector('section')
+
+        btn.addEventListener('click',function(evt){
+          evt.preventDefault();
+          let totalPrice=0;
+          const washValue = parseFloat(wash.value)
+          totalPrice += washValue
+            console.log(clean)
+          for (let i=0; i<clean.lenght; i++){
+            if(clean[i].checked){
+              totalPrice+=parseFloat(clean[i].value)
+            }
           }
-          if(document.getElementById("").checked){
-            cena += parseInt(.value);
-          }
-          wynik.innerHTML = cena;
+          price.innerHTML = 'przewidywana cena: <b>' + totalPrice+ '</b>'
         })
       </script>
 </body>
