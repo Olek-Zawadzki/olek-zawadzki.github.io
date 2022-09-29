@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form action="">
+      <label for="a">Pierwsza Liczba</label>
+      <input type="number" name="a" id="a" min="1" /> <br />
+      <label for="b">Druga Liczba</label>
+      <input type="number" name="b" id="b" min="1" /> <br />
+      <label for="c">Trzecia Liczba</label>
+      <input type="number" name="c" id="c" min="1" />
+      <input type="submit" value="Wyślij" />
+    </form>
+    <section></section>
+    <script>
+      const a = document.getElementById("a");
+      const b = document.getElementById("b");
+      const c = document.getElementById("c");
+      const submit = document.querySelector("input[type='submit']");
+      const section = document.querySelector("section");
+
+      submit.addEventListener("click", function (evt) {
+        evt.preventDefault();
+        console.log(a);
+        const aVal = parseInt(a.value);
+        const bVal = parseInt(b.value);
+        const cVal = parseInt(c.value);
+        if (cVal >= bVal && aVal + bVal > cVal && cVal >= aVal) {
+          const p = document.createElement("p");
+          const pText = document.createTextNode(
+            "Trójkąt da sie zbudować " + aVal + "+" + bVal + ">" + cVal
+          );
+          p.appendChild(pText);
+          document.body.appendChild(p);
+          const obwód = (aVal + bVal + cVal) / 2;
+          const pole = Math.sqrt(
+            obwód * (obwód - aVal) * (obwód - bVal) * (obwód - cVal)
+          );
+          const poleVal = pole.toFixed(2);
+          const pS = document.createElement("p");
+          pS.innerHTML = "Pole wynosi: " + poleVal;
+          document.body.appendChild(pS);
+        } else if (bVal >= aVal && bVal > cVal && aVal + cVal >= bVal) {
+          const p = document.createElement("p");
+          const pText = document.createTextNode(
+            "Trójkąt da sie zbudować " + aVal + "+" + cVal + ">" + bVal
+          );
+          p.appendChild(pText);
+          document.body.appendChild(p);
+          const obwód = (aVal + bVal + cVal) / 2;
+          const pole = Math.sqrt(
+            obwód * (obwód - aVal) * (obwód - bVal) * (obwód - cVal)
+          );
+          const poleVal = pole.toFixed(2);
+          const pS = document.createElement("p");
+          pS.innerHTML = "Pole wynosi: " + poleVal;
+          document.body.appendChild(pS);
+        } else if (aVal >= cVal && aVal > bVal && bVal + cVal >= aVal) {
+          const p = document.createElement("p");
+          const pText = document.createTextNode(
+            "Trójkąt da sie zbudować " + bVal + "+" + cVal + ">" + aVal
+          );
+          p.appendChild(pText);
+          document.body.appendChild(p);
+          const obwód = (aVal + bVal + cVal) / 2;
+          console.log(obwód);
+          const pole = Math.sqrt(
+            obwód * (obwód - aVal) * (obwód - bVal) * (obwód - cVal)
+          );
+          const poleVal = pole.toFixed(2);
+          const pS = document.createElement("p");
+          pS.innerHTML = "Pole wynosi: " + poleVal;
+          document.body.appendChild(pS);
+        } else {
+          const p = document.createElement("p");
+          const pText = document.createTextNode(
+            "Trójkąta nie da sie zbudować "
+          );
+          p.appendChild(pText);
+          document.body.appendChild(p);
+        }
+      });
+    </script>
+  </body>
+</html>
